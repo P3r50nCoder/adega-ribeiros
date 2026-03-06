@@ -37,6 +37,69 @@ header{
     background-color: rgba(0,0,0,0.8);
     backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 2px 1…
+ } /* ==============================
+   Reset básico
+============================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   Corpo da página
+============================== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    background-image: url('img/adega.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 100px; /* espaço para header fixo */
+}
+
+/* ==============================
+   Links
+============================== */
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s all ease;
+}
+
+a:hover{
+    color: #00ff88;
+}
+
+/* ==============================
+   Seções
+============================== */
+section{
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 20px;
+    color: white;
+}
+
+/* ==============================
+   Header (navbar fixa com Glass effect)
+============================== */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     z-index: 1000;
 }
@@ -46,10 +109,13 @@ h1{
     letter-spacing: 2px;
 }
 
+/* ==============================
+   Navbar links
+============================== */
 nav a{
     color: white;
     text-decoration: none;
-    margin: 10px;
+    margin: 0 10px;
     font-weight: bold;
 }
 
@@ -57,6 +123,9 @@ nav a:hover{
     color: #00ff88;
 }
 
+/* ==============================
+   Cardápio
+============================== */
 #cardapio h2{
     font-size: 36px;
     margin-bottom: 40px;
@@ -72,30 +141,20 @@ nav a:hover{
 }
 
 .produto{
-
     background-color: rgba(0,0,0,0.7);
     padding: 25px;
     border-radius: 10px;
     width: 200px;
     text-align: center;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     overflow: hidden;
-}
-
-.produto h3{
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.produto p{
-    font-size: 20px;
-    font-weight: bold;
-    color:#00ff88;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .produto:hover{
-    transform: scale(1.05);
-    background: rgba(0,0,0,0.9);
+    transform: translateY(-5px) scale(1.05);
+    background-color: rgba(0,0,0,0.9);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
 
 .produto img{
@@ -104,10 +163,37 @@ nav a:hover{
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
+.produto:hover img{
+    transform: scale(1.05);
+}
+
+.produto h3{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.preco{
+    font-size: 20px;
+    color:#00ff88;
+    font-weight: bold;
+}
+
+/* ==============================
+   Contato / WhatsApp flutuante
+============================== */
+.contato-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
 .whatsapp-btn{
+    position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #25d366;
@@ -116,95 +202,71 @@ nav a:hover{
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
-}
-
-.contato-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    transition: 0.3s all ease;
+    animation: bounce 2s infinite;
 }
 
 .whatsapp-btn:hover{
-    background: #1ebe5d;
+    background-color: #1ebe5d;
     transform: scale(1.05);
 }
 
-#contato a{
-    background-color: #25d366;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
+@keyframes bounce{
+    0%,100%{ transform: translateY(0);}
+    50%{ transform: translateY(-10px);}
 }
 
-section{
-    max-width: 1200px;
-    margin: auto;
+/* ==============================
+   Responsividade
+============================== */
+@media (max-width: 768px){
+
+    header{
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+
+    h1{
+        font-size: 32px;
+    }
+
+    .container-produto{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto{
+        width: 90%;
+    }
+
+    section{
+        padding: 80px 20px;
+    }
+
+    /* Menu mobile */
+    .menu-toggle{
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    nav{
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    nav.active{
+        display: flex;
+    }
 }
 
 html{
     scroll-behavior: smooth;
-}
-
-@media (max-width: 768px){
-
-header{
-flex-direction: column;
-gap: 10px;
-}
-
-nav{
-display: flex;
-gap: 15px;
-}
-
-h1{
-font-size: 32px;
-}
-
-.container-produto{
-flex-direction: column;
-align-items: center;
-}
-
-.produto{
-width: 90%;
-}
-
-section{
-padding: 120px 20px;
-}
-
-}
-
-.menu-toggle{
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-@media (max-width:768px){
-
-nav{
-display: none;
-flex-direction: column;
-background: rgba(0,0,0,0.9);
-position: absolute;
-top: 70px;
-right: 20px;
-padding: 20px;
-border-radius: 8px;
-}
-
-nav.active{
-display: flex;
-}
-
-.menu-toggle{
-display: block;
-}
-
 }
