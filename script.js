@@ -5,7 +5,7 @@ menuToggle.addEventListener("click", () => {
     nav.classList.toggle("active");
 });
 
-const botoesFiltro = document.querySelectorAll(".filtros button");
+const botoesFiltro = document.querySelectorAll(".filtros button"); // corrigido
 const produtos = document.querySelectorAll(".produto");
 
 botoesFiltro.forEach(botao => {
@@ -14,15 +14,13 @@ botoesFiltro.forEach(botao => {
         botao.classList.add("ativo");
 
         const categoria = botao.getAttribute("data-filtro");
+
         produtos.forEach(produto => {
             if (categoria === "todos" || produto.dataset.categoria === categoria) {
-                produto.style.display = "block";
+                produto.style.display = "block"; // mostrar
+            } else {
+                produto.style.display = "none";  // ocultar
             }
-             else {
-                produto.style.display = "none";
-            
-        }
+        });
     });
-        
-    })
-})
+});
