@@ -22,26 +22,70 @@
     </header>
     <section id="cardapio">
         <h2>Nosso Cardapio</h2>
+
+        <div class="filtros">
+            <button data-filtro="todos" class="ativo">Todos</button>
+            <button data-filtro="bebidas">Bebidas</button>
+            <button data-filtro="narguile">Narguilé</button>
+            <button data-filtro="diversos">Diversos</button>
+        </div>
+
+        <h3 class="categoria">Bebidas</h3>
         <div class="container-produto">
+            
+            <div class="produto" data-categoria="bebidas">
+
         <div class="produto"> 
             <!-- Primeiro produto -->
              <img src="img/copao-gin.jpeg" alt="Copão de Gin">
             <h3>Copão de Gin</h3>
             <span class="preco">R$ 15,00</span>
         </div>
+        </div>
+
         <div class="produto">
             <!-- Segundo produto -->
+             <div class="produto" data-categoria="bebidas">
              <img src="img/copao-jack.jpeg" alt="Copão de Jack Daniels">
             <h3>Copão Jack Daniels</h3>
             <span class="preco">R$ 20,00</span>
         </div>
+        </div>
+
         <div class="produto">
             <!-- Terceiro produto -->
+             <div class="produto" data-categoria="bebidas">
              <img src="img/mansao-maromba.jpeg" alt="Mansão Maromba">
             <h3>Mansão Maromba</h3>
             <span class="preco">R$ 11,00</span>
         </div>
         </div>
+
+    <h3 class="categoria">Narguilé</h3>
+
+    <div class="container-produto">
+        <div class="produto" data-categoria="narguile">
+            <img src="img/narguile.webp">
+            <h4>Sessão de Narguilé</h4>
+            <span class="preco">R$ 25,00</span>
+        </div>
+        </div>
+
+    </div>
+
+    <h3 class="categoria">Diversos</h3>
+
+    <div class="container-produto">
+        <div class="produto" data-categoria="diversos">
+            <img src="img/gelo-sabores.png">
+            <h4>|Gelo de Sabor</h4>
+            <span class="preco">R$ 3,50,00</span>
+        </div>
+        </div>
+
+
+
+    </div>
     </section>
     <section id="localizacao">
         <h2>Localização</h2>
