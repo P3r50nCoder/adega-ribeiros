@@ -5,7 +5,7 @@ menuToggle.addEventListener("click", () => {
     nav.classList.toggle("active");
 });
 
-const botoesFiltro = document.querySelectorAll(".filtro button");
+const botoesFiltro = document.querySelectorAll(".filtros button");
 const produtos = document.querySelectorAll(".produto");
 
 botoesFiltro.forEach(botao => {
@@ -16,7 +16,7 @@ botoesFiltro.forEach(botao => {
         const categoria = botao.getAttribute("data-filtro");
         produtos.forEach(produto => {
             if (categoria === "todos" || produto.dataset.categoria === categoria) {
-                produto.computedStyleMap.display = "block";
+                produto.style.display = "block";
             }
              else {
                 produto.style.display = "none";
